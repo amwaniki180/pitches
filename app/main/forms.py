@@ -14,3 +14,4 @@ class AddPitchForm(FlaskForm):
 class AddComment(FlaskForm):
     content = TextAreaField("Add comment")
     submit = SubmitField("Add")
+
