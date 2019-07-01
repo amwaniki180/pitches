@@ -8,4 +8,4 @@ class User(db.Model):
     username = db.Column(db.String(255))
 
     def __repr__(self):
-        return f'User {}
+        return f'User {self.username}
