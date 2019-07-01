@@ -6,6 +6,12 @@ app = create_app('development')
 manager = Manager(app)
 manager.add_command('server'Server)
 @manager.add_command
+def test():
+    '''
+    Run unit test
+    '''
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
 
 
 @manager.shell
