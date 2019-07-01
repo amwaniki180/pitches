@@ -1,7 +1,12 @@
-from app import create_app
+from app import create_app,db
 from app.models import User
   
 app = create_app('development')
+
+manager = Manager(app)
+manager.add_command('server'Server)
+@manager.add_command
+
 
 @manager.shell
 def make_shell_context():
