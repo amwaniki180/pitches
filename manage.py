@@ -1,5 +1,7 @@
 from app import create_app,db
 from app.models import User
+  
+app = create_app('default')
 
 @manager.shell
 def make_shell_context():
