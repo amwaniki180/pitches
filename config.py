@@ -6,4 +6,4 @@ class Config:
     """
     UPLOADED_PHOTOS_DEST = "app/static/photos"
     SECRET_KEY = os.environ.get("SECRET_KEY")
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:antony@tony/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://antony:@tony/pitches'
