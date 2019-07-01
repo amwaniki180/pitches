@@ -20,6 +20,10 @@ def save_pitch(self):
         db.session.add(self)
         db.session.commit()
 
+def get_pitch_comments(self):
+        pitch = Pitch.query.filter_by(id = self.id).first()
+        comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.time.desc())
+        return comments
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
