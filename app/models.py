@@ -20,6 +20,15 @@ def save_pitch(self):
         db.session.add(self)
         db.session.commit()
 
+ @property
+def password(self):
+    raise AttributeError("oya...jibebebe..siujibebebebe")
+
+ @password.setter
+def password(self,password):
+    self.pass_locked = generate_password_hash(password)
+
+
 def get_pitch_comments(self):
         pitch = Pitch.query.filter_by(id = self.id).first()
         comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.time.desc())
