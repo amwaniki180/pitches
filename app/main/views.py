@@ -1,5 +1,5 @@
 from flask import render_template
-from app import app
+from . import main
 
 
 
@@ -10,6 +10,6 @@ def index():
     '''
     view root page function that returns the index page and its data
     '''
-    pitches = Pitch.query.all()
+    pitches = pitches.query.all()
     title = "Home - welcome to pitches...Best pitch app"
     return render_template("index.html", pitches = pitches,title = title)
