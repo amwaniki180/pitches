@@ -40,6 +40,11 @@ def get_pitch_comments(self):
     user = User.query.filter_by(id = self.id).first()
     return user.pitches
 
+def get_user_comments(self):
+    user  = User.query.filter_by(id = self.id).first()
+    return user.comments
+
+
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
