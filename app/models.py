@@ -16,6 +16,10 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     comments = db.relationship("Comment", backref = "pitch", lazy = "dynamic")
 
+def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
