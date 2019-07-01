@@ -1,5 +1,5 @@
-from app import create_app
-# from app.models import User
+from app import create_app,db
+from app.models import User
   
   #creating app instance
 app = create_app('development')
