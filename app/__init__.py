@@ -10,6 +10,10 @@ def create_app(config_name):
     bootstrap = Bootstrap()
     db = SQLAlchemy()
 
+    # Setting up configuration
+    app.config.from_object(DevConfig)
+    app.config.from_pyfile("config.py")
+
 
     # Initializing flask extensions
     bootstrap.init_app(app)
