@@ -5,6 +5,7 @@ class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
+    user_id = db.Column(db.Foreignkey('user.id'))
 
     def __repr__(self):
         return f'User {self.username}'
@@ -21,34 +22,34 @@ class Pitch(db.Model):
     date = db.Column(db.String)
     time = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    comments = db.relationship("Comment", backref = "pitch", lazy = "dynamic")
+    # comments = db.relationship("Comment", backref = "pitch", lazy = "dynamic")
 
 def save_pitch(self):
         db.session.add(self)
         db.session.commit()
 
- @property
+@property
 def password(self):
     raise AttributeError("oya...jibebebe..siujibebebebe")
 
- @password.setter
+@password.setter
 def password(self,password):
     self.pass_locked = generate_password_hash(password)
 
 def verify_pass(self,password):
     return check_password_hash(self.pass_locked,password)
 
-def get_pitch_comments(self):
-    pitch = Pitch.query.filter_by(id = self.id).first()
-    comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.time.desc())
-    return comments
+# def get_pitch_comments(self):
+#     pitch = Pitch.query.filter_by(id = self.id).first()
+#     comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.time.desc())
+#     return comments
 
- def get_user_pitches(self):
+def get_user_pitches(self):
     user = User.query.filter_by(id = self.id).first()
     return user.pitches
 
-def get_user_comments(self):
-    user  = User.query.filter_by(id = self.id).first()
-    return user.comments
+# def get_user_comments(self):
+#     user  = User.query.filter_by(id = self.id).first()
+#     return user.comments
 
 
