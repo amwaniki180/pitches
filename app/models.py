@@ -28,6 +28,8 @@ def password(self):
 def password(self,password):
     self.pass_locked = generate_password_hash(password)
 
+def verify_pass(self,password):
+    return check_password_hash(self.pass_locked,password)
 
 def get_pitch_comments(self):
         pitch = Pitch.query.filter_by(id = self.id).first()
