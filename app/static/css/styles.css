@@ -1,0 +1,19 @@
+body {
+    background-size: cover;
+    font-family: Text Me One;
+    font-size: 1.8em;
+}
+
+.category {
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: steelblue;
+    text-align: center;
+    color: white;
+    transition: background 1s, transform 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
