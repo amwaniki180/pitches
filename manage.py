@@ -4,7 +4,7 @@ from app.models import User,Pitch,Comment
 from flask_migrate import Migrate, MigrateCommand
   
   #creating app instance
-app = create_app('development')
+app = create_app('production')
 
 manager = Manager(app)
 manager.add_command('server',Server)
@@ -27,5 +27,4 @@ def make_shell_context():
     return dict(app = app,db = db,User = User )
 
 if __name__ == '__main__':
-    app.secret_key = '0717006024'
     manager.run()
