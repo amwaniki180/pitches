@@ -9,6 +9,8 @@
     {% if pitches%} {% for pitch in pitches %}
     <h1>{{pitch.pitch}} </h1>
     <h2>{{pitch.category}} </h2>
+    <h3>{{pitch.comment}}</h3>
+
     {% endfor %} {%endif%}
     <a href="{{url_for('main.add_pitch',uname = current_user.username)}}"><button class="btn btn-info">Add A Pitch  {{current_user.name}} </button></a>
 </div>

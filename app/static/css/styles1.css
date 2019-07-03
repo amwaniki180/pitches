@@ -10,7 +10,7 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: steelblue;
+    background-color: rgb(222, 229, 235);
     text-align: center;
     color: white;
     transition: background 1s, transform 0.5s;
