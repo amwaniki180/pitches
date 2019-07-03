@@ -1,59 +1,41 @@
-<!-- Navbar brand -->
-<a class="navbar-brand" href="#">Navbar</a>
+<!DOCTYPE html>
+<html>
 
-<!-- Collapse button -->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
 
-<!-- Collapsible content -->
-<div class="collapse navbar-collapse" id="basicExampleNav">
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-        </li>
-
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+                <a class="navbar-brand" href="/"> Pitchers </a>
             </div>
-        </li>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                    {%endif%}
+                </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            {% if current_user.is_authenticated %}
-            <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-            <li style="color:white;padding:15px;">{{current_user.username}}</li>
-            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-            {% else %}
-            <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-            {%endif%}
-        </ul>
 
 
-    </ul>
-    <!-- Links -->
+            </div>
 
-    <form class="form-inline">
-        <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         </div>
-    </form>
-</div>
-<!-- Collapsible content -->
+    </div>
+</body>
 
-</nav>
-<!--/.Navbar-->
+</html>

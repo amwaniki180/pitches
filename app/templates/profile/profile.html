@@ -11,7 +11,7 @@
             {%else%}
             <p> {{user.username| capitalize}} has no bio </p>
             {% endif %} {% if user == current_user %}
-            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a> {% endif %}
+            <a href="{{url_for('main.update_profile',user_id=user.username)}}">Edit profile</a> {% endif %}
         </div>
 
         <!--Display profile photo-->
@@ -21,7 +21,7 @@
             <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail"> {%else%}
             <p>No profile picture</p>
             {% endif %} {% if user == current_user %}
-            <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype="multipart/form-data">
+            <form action="{{url_for('main.update_pic',user_id=user.username)}}" method="post" enctype="multipart/form-data">
 
                 <input type="file" name="photo" class="form-control" required>
                 <input type="submit">

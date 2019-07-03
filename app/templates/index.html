@@ -1,4 +1,4 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 
 <!-- {% block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}"> 
@@ -11,7 +11,7 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button> {{ message }}
     </div>
     {% endfor %}
-    <h1 class="text-center animated lightSpeedIn delay-0.4s">Welcome to PITCH PERFECT</h1>
+    <h1 class="text-center animated lightSpeedIn delay-0.4s">Welcome to PITCHES WITH A MEANING </h1>
     <h2 class="text-center">Categories</h2>
     <div class="row categories">
         <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
@@ -21,7 +21,7 @@
             <a href="{{url_for('main.categories',category='promotion')}}">Promotional</a>
         </div>
         <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
-            <a href="{{url_for('main.categories',category='gossip')}}">Pick Up Lines</a>
+            <a href="{{url_for('main.categories',category='gossip')}}">Gossip</a>
         </div>
         <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <a href="{{url_for('main.categories',category='funny')}}">Funny</a>
@@ -32,7 +32,7 @@
             <a href="{{url_for('main.categories',category='cheesy')}}">Cheesy</a>
         </div>
         <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
-            <a href="{{url_for('main.categories',category='highlights')}}">Boring</a>
+            <a href="{{url_for('main.categories',category='highlights')}}">highlights</a>
         </div>
         <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <a href="{{url_for('main.categories',category='random')}}">Random</a>
