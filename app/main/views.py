@@ -48,10 +48,10 @@ def add_pitch(uname):
         return redirect(url_for("main.categories",category = category))
     return render_template("add_pitch.html",form = form, title = title)
 
-@main.route("/<user>/pitch/<pitch_id>/add/comment", methods = ["GET","POST"])
+@main.route("/<user>/pitch/<pitch_id>/addcomment", methods = ["GET","POST"])
 @login_required
 def comment(user,pitch_id):
-    user = User.query.filter_by(id = user).first()
+    user = User.query.filter_by(username = user).first()
     pitch = Pitch.query.filter_by(id = pitch_id).first()
     form = AddComment()
     title = "Add comment"
@@ -62,7 +62,7 @@ def comment(user,pitch_id):
         time = time[0:5]
         date = str(dateOriginal)
         date = date[0:10]
-        new_comment = Comment(content = content, user = user, pitch = pitch,time = time, date = date )
+        new_comment = Comment(content = content,  pitch = pitch,time = time, date = date )
         new_comment.save_comment()
         return redirect(url_for("main.view_comments", pitch_id=pitch.id))
     return render_template("comment.html", title = pitch.title,form = form,pitch = pitch)
@@ -84,7 +84,7 @@ def profile(user_id):
     title = user.name.upper()
     return render_template("profile.html", pitches = pitches, user = user,title = title)
 
-@main.route("/<user_id>/profile")#
+@main.route("/<user_id>/profile")
 @login_required
 def user(user_id):
     user = User.query.filter_by(id = user_id).first()

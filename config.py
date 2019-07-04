@@ -21,6 +21,7 @@ class ProdConfig(Config):
     
 
 class DevConfig(Config):
+    SECRET_KEY='absc'
     SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://antony:dee@localhost/pitches'
     DEBUG = True
 
