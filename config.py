@@ -5,7 +5,6 @@ class Config:
     This is the parent class which will have the general configurations
     """
     UPLOADED_PHOTOS_DEST = "app/static/photos"
-    SECRET_KEY = os.environ.get("SECRET_KEY")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
@@ -17,9 +16,9 @@ class Config:
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI =os.environ.get('HEROKU_POSTGRESQL_GOLD_URL')
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+    SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
     
-
 
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://antony:dee@localhost/pitches'
